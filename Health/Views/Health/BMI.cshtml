@@ -1,0 +1,177 @@
+﻿@using Health.Models.Health
+@model BMICalculationModel
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="/css/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="/css/owl.theme.default.min.css" rel="stylesheet">
+
+    <link href="/css/templatemo-medic-care.css" rel="stylesheet">
+
+    <style>
+        .dropbtn {
+            background-color: transparent;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                /* Change color of dropdown links on hover */
+                .dropdown-content a:hover {
+                    background-color: transparent;
+                }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+
+<br />
+<br />
+<br />
+<br />
+<div style="position: relative; left:32%; top: 10%;">
+    <img src="https://www.cdc.gov/healthyweight/images/assessing/bmi-adult-fb-600x315.jpg?_=07167" />
+</div>
+<br />
+<br />
+<br />
+<h3>Индекс на телесена маса</h3>
+<p>Случва ли се да си зададеш въпроса „Колко килограма трябва да съм?“ или да искаш да изчислиш колко килограми според височината ти трябва да бъдеш, за да си в добра здравословна форма? Може би смяташ, че си с наднормено тегло, но дали е така и винаги ли това изисква медицинска намеса? За да провериш това, е необходимо да знаеш твоите ръст и тегло, с които да изчислиш твоя индекс на телесна маса.</p>
+<h5><strong>Какво показва индексът на телесната маса?</strong></h5>
+<p>
+    ИТМ (индекс на телесната маса) показва в какво съотношение са твоите тегло и ръст. В зависимост от резултата на това изчисление и във връзка с твоята възраст и пол, нашият калкулатор на ИТМ може да изчисли стойност, която показва дали твоето тегло е в рамките на нормалното. В съседната таблица със стойности на ИТМ, която представя разделение на отделните групи по тегло, можеш лесно да видиш дали не си на границата на друга група. Може например да си все още в рамките на нормалното тегло, но вече да се намираш на границата към групата на наднорменото или поднорменото тегло. В зависимост от структурата на твоето тяло и здравословното ти състояние, е възможно да изглежда необходимо да увеличиш или намалиш твоето актуално тегло. При екстремни стойности се консултирай с твоя лекар, за да обсъдиш необходимите мерки и да намалиш рисковете за здравето си. Повече за отделните групи по тегло ще откриеш по-долу.
+
+    Между другото: Силно тренираните хора често имат много висок индекс на телесната маса. Затова за тях анализът на телесните мазнини е по-показателен.
+</p>
+<div class="table">
+    <table class="table table-male">
+        <thead>
+            <tr>
+                <th>Възраст</th>
+                <th>Поднормено тегло</th>
+                <th>Нормално тегло</th>
+                <th>Наднормено тегло</th>
+                <th>Затлъстяване</th>
+                <th>Силно<br>затлъстяване</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>18 - 24</td>
+                <td>&lt; 20</td>
+                <td>20 - 25</td>
+                <td>25 - 30</td>
+                <td>30 - 40</td>
+                <td>> 40</td>
+            </tr>
+            <tr>
+                <td>25 - 34</td>
+                <td>&lt; 21</td>
+                <td>21 - 26</td>
+                <td>26 - 31</td>
+                <td>31 - 41</td>
+                <td>> 41</td>
+            </tr>
+            <tr>
+                <td>35 - 44</td>
+                <td>&lt; 22</td>
+                <td>22 - 27</td>
+                <td>27 - 32</td>
+                <td>32 - 42</td>
+                <td>> 42</td>
+            </tr>
+            <tr>
+                <td>45 - 54</td>
+                <td>&lt; 23</td>
+                <td>23 - 28</td>
+                <td>28 - 33</td>
+                <td>33 - 43</td>
+                <td>> 43</td>
+            </tr>
+            <tr>
+                <td>55 - 64</td>
+                <td>&lt; 24</td>
+                <td>24 - 29</td>
+                <td>29 - 34</td>
+                <td>34 - 44</td>
+                <td>> 44</td>
+            </tr>
+            <tr>
+                <td>65+</td>
+                <td>&lt; 25</td>
+                <td>25 - 30</td>
+                <td>30 - 35</td>
+                <td>35 - 45</td>
+                <td>> 45</td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="Weight" class="form-label"></label>
+                    <input asp-for="Weight" min="30" max="200" value="30" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Weight" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Height" class="form-label"></label>
+                    <input asp-for="Height" min="120" max="210" value="120" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Height" class="text-danger"></span>
+                </div>
+                <div class="mb-3 text-center">
+                    <input class="btn btn-primary" type="submit" />
+                </div>
+            </form>
+            @if (ViewBag.BMI != -1)
+            {
+                <p>Индекс на телесна маса: @ViewBag.BMI</p>
+            }
+        </div>
+    </div>

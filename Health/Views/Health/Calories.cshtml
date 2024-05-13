@@ -1,0 +1,127 @@
+﻿@using Health.Models.Health
+@model CaloriesCalculationModel
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="/css/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="/css/owl.theme.default.min.css" rel="stylesheet">
+
+    <link href="/css/templatemo-medic-care.css" rel="stylesheet">
+
+    <style>
+        .dropbtn {
+            background-color: transparent;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                /* Change color of dropdown links on hover */
+                .dropdown-content a:hover {
+                    background-color: transparent;
+                }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+
+<div style="position: relative; left:25%; top: 10%; ">
+    <img src="https://assets.bb-team.org/content/originals/5358.jpg" style="width:800px;height:500px;" />
+</div>
+<br />
+<br />
+<br />
+<h3>Калории</h3>
+<p>
+    Калории – това е мерна единица за измерване на количеството енергия в дадена храна или напитка.
+
+    Когато се храним и пием течности, ние си набавяме калории, които се преобразуват в енергия в организма ни. Тялото ни изразходва тази енергия за извършване на жизненоважни функции – дишане, физическа активност и други.
+
+    За да поддържаме теглото си, калориите, които си набавяме от храната и напитките, трябва да бъдат същото количество, каквото използваме за извършване на нормалните телесни функции и физическа активност.
+
+    Ако целим отслабване или покачване на теглото, то трябва да знаем от колко калории имаме нужда, за да постигнем целта си. Именно затова важна част от здравословното хранене е балансът на приетите и изразходваните калории.
+</p>
+<h5><strong>Еднакви ли са всички калории?</strong></h5>
+<p>
+    Калориите в храните се различават и е важно от какъв източник ще си ги набавим. Някои храни и напитки нямат почти никаква хранителна стойност, докато други продукти са богати на полезни хранителни вещества.
+
+    Всички храни и напитки съдържат калории, които се използват от организма ни като енергиен източник. Приети в тялото ни, по-специално въглехидратите се съхраняват като гликоген в мускулите и черния дроб.
+
+    Калориите се използват като източник на енергия за бъдещи нужди или се превръщат в мазнини – в зависимост от това колко калории сме приели през деня.
+
+    Храните могат да бъдат с много ниско съдържание на калории, като например някои зеленчуци и плодове. Освен водата и изкуствените подсладители, нищо, което консумираме, не е напълно без калории.
+</p>
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Minites" class="form-label"></label>
+                <input asp-for="Minites" min="30" max="420" value="30" class="form-control" aria-required="true" />
+                <span asp-validation-for="Minites" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Sport"></label>
+                <select asp-for="Sport" class="form-control">
+                    <option value="Футбол">Футбол</option>
+                    <option value="Аеробика">Аеробика</option>
+                    <option value="Боулинг">Боулинг</option>
+                    <option value="Тенис на корт">Тенис на корт</option>
+                    <option value="Волейбол">Волейбол</option>
+                </select>
+            </div>
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" />
+            </div>
+        </form>
+        @if (ViewBag.Calories != -1)
+        {
+            <p>Изгорени калории: @ViewBag.Calories</p>
+            <img src="https://img.redbull.com/images/c_crop,x_543,y_0,h_717,w_573/c_fill,w_450,h_600/q_auto:low,f_auto/redbullcom/2016/01/20/1331772120383_2/draven-is-the-riskiest-ad-carry-in-pro-play" />
+        }
+    </div>
+</div>

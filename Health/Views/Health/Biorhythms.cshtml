@@ -1,0 +1,117 @@
+﻿@using Health.Models.Health;
+@model BiorhythmsCalculationModel
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="/css/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="/css/owl.theme.default.min.css" rel="stylesheet">
+
+    <link href="/css/templatemo-medic-care.css" rel="stylesheet">
+
+    <style>
+        .dropbtn {
+            background-color: transparent;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                /* Change color of dropdown links on hover */
+                .dropdown-content a:hover {
+                    background-color: transparent;
+                }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+
+<div style="position: relative; left:14%; top: 10%;">
+    <img src="https://novotopoznanie.bg/potestatem/wp-content/uploads/2019/07/shaman-2897334_1280-1024x585.jpg"/>
+</div>
+<br />
+<br />
+<br />
+<h3>Биоритмичен хороскоп</h3>
+<p>От 50-те години в научните среди се говори за биоритмите с продължителност 23, 28 и 33 дни. По един или друг начин, те продължават да са актуални и днес. Често се казва, че на "еди-кого-си му влияе Луната", че "днес не му е добър ден". Тези заключения от ежедневните разговори, намират свое научно потвърждение в теорията за физическите, емоционалните и интелектуалните ритми.</p>
+<h5><strong>Какво представляват те?</strong></h5>
+<p>
+    Д-р Флис от Берлинския университет установява, че през периоди от 23 или 28 дни се редуват редица оплаквания при пациентите. Появава се наименованието за 23-дневния цикъл – мъжки цикъл (или физически) и на 28-мия дневен цикъл – женски (или емоционален). Установява се също, че ражданията, боледуванията, смъртните случаи са през периоди кратни на 23 или 28.
+
+    За 33-дневния цикъл се заговорва от д-р Лексфорд от Университета в Пенсилвания, който установява, че студентите усвояват качествено преподавания материал през период от 33 дни. Този цикъл става известен като интелектуален.
+
+    След като се изказва мнението, че циклите се определят от датата на раждане на човека, швейцарският инженер Фрю изработва първата скала за пресмятане на биоритмите.
+
+    В момента на раждане и трите цикъла са в нулева фаза. Те се променят по синусоиден закон. Това означава, че се изменат хармонично. Всеки цикъл има положителни критични и отрицателни критични дни. Пример ще дадем с емоционалния 28-дневен цикъл, който се съгласува с нервно-хормоналнота система. В положителната му половина, той провокира добро настроение, жизненост и общо добро психическо състояние. Във втората му половина, напротив, наблюдават се раздразнителност, нетърпимост към околните, избухливост. В такива дни е регистрирано увеличение на нещастните случаи.
+</p>
+<p></p>
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="BirthDate" class="form-label"></label>
+                <input asp-for="BirthDate" type="date" class="form-control" aria-required="true" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Status"></label>
+                <select asp-for="Status" class="form-control">
+                    <option value="физическо">Физическо състояние</option>
+                    <option value="емоционално">Емоционално състояние</option>
+                    <option value="интелектуално">Интелектуално състояние</option>
+                </select>
+            </div>
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" />
+            </div>
+        </form>
+        @if (ViewBag.Bio != -1)
+        {
+            <p>Вашият процент за @ViewBag.BioStatus състояние е @ViewBag.Bio</p>
+        }
+    </div>
+</div>
